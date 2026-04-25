@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Navalha & Co. — Barbearia Premium</title>
+<link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com/)">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+--preto: #0d0d0d;
+--preto2: #1a1a1a;
+--dourado: #c9a84c;
+--dourado-claro: #e8c97a;
+--cinza: #888888;
+--cinza-claro: #f0efed;
+--creme: #faf8f4;
+--branco: #ffffff;
+}
+
+- { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+font-family: 'Barlow', sans-serif;
+background: var(--preto);
+color: var(--branco);
+overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+position: fixed;
+top: 0; left: 0; right: 0;
+z-index: 100;
+padding: 0 60px;
+height: 72px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+background: rgba(13,13,13,0.95);
+backdrop-filter: blur(12px);
+border-bottom: 1px solid rgba(201,168,76,0.15);
+}
+
+.nav-logo {
+font-family: 'Bebas Neue', sans-serif;
+font-size: 1.8rem;
+color: var(--branco);
+text-decoration: none;
+letter-spacing: 3px;
+}
+
+.nav-logo span { color: var(--dourado); }
+
+.nav-links { display: flex; gap: 36px; list-style: none; }
+
+.nav-links a {
+font-size: 12px;
+font-weight: 600;
+color: var(--cinza);
+text-decoration: none;
+letter-spacing: 2px;
+text-transform: uppercase;
+transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--dourado); }
+
+.nav-cta {
+background: transparent;
+border: 1px solid var(--dourado);
+color: var(--dourado) !important;
+padding: 10px 24px;
+border-radius: 2px;
+letter-spacing: 2px !important;
+transition: all 0.25s !important;
+}
+
+.nav-cta:hover {
+background: var(--dourado) !important;
+color: var(--preto) !important;
+}
+
+/* HERO */
+.hero {
+height: 100vh;
+position: relative;
+display: flex;
+align-items: center;
+overflow: hidden;
+background: var(--preto);
+}
+
+.hero-bg {
+position: absolute;
+inset: 0;
+background:
+radial-gradient(ellipse at 80% 50%, rgba(201,168,76,0.06) 0%, transparent 60%),
+repeating-linear-gradient(
+0deg,
+transparent,
+transparent 60px,
+rgba(255,255,255,0.015) 60px,
+rgba(255,255,255,0.015) 61px
+),
+repeating-linear-gradient(
+90deg,
+transparent,
+transparent 60px,
+rgba(255,255,255,0.015) 60px,
+rgba(255,255,255,0.015) 61px
+);
+}
+
+.hero-content {
+position: relative;
+z-index: 2;
+padding: 0 80px;
+max-width: 800px;
+}
+
+.hero-tag {
+display: inline-flex;
+align-items: center;
+gap: 12px;
+font-size: 11px;
+font-weight: 600;
+letter-spacing: 4px;
+text-transform: uppercase;
+color: var(--dourado);
+margin-bottom: 32px;
+}
+
+.hero-tag::before, .hero-tag::after {
+content: '';
+width: 30px;
+height: 1px;
+background: var(--dourado);
+}
+
+.hero h1 {
+font-family: 'Bebas Neue', sans-serif;
+font-size: clamp(5rem, 10vw, 9rem);
+letter-spacing: 4px;
+line-height: 0.9;
+margin-bottom: 32px;
+color: var(--branco);
+}
+
+.hero h1 .outline {
+-webkit-text-stroke: 2px var(--dourado);
+color: transparent;
+display: block;
+}
+
+.hero h1 .fill { color: var(--dourado); display: block; }
+
+.hero-desc {
+font-size: 16px;
+color: var(--cinza);
+line-height: 1.8;
+max-width: 440px;
+margin-bottom: 48px;
+font-weight: 300;
+}
+
+.hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+
+.btn-gold {
+display: inline-flex;
+align-items: center;
+gap: 10px;
+background: var(--dourado);
+color: var(--preto);
+padding: 15px 36px;
+text-decoration: none;
+font-size: 12px;
+font-weight: 700;
+letter-spacing: 2px;
+text-transform: uppercase;
+border-radius: 2px;
+transition: all 0.25s;
+}
+
+.btn-gold:hover {
+background: var(--dourado-claro);
+transform: translateY(-2px);
+box-shadow: 0 10px 30px rgba(201,168,76,0.3);
+}
+
+.btn-ghost {
+display: inline-flex;
+align-items: center;
+gap: 10px;
+background: transparent;
+border: 1px solid rgba(255,255,255,0.2);
+color: rgba(255,255,255,0.6);
+padding: 15px 36px;
+text-decoration: none;
+font-size: 12px;
+font-weight: 600;
+letter-spacing: 2px;
+text-transform: uppercase;
+border-radius: 2px;
+transition: all 0.25s;
+}
+
+.btn-ghost:hover {
+border-color: var(--dourado);
+color: var(--dourado);
+}
+
+/* NÚMEROS */
+.numeros {
+position: absolute;
+right: 80px;
+top: 50%;
+transform: translateY(-50%);
+z-index: 2;
+display: flex;
+flex-direction: column;
+gap: 32px;
+}
+
+.num-item { text-align: right; }
+
+.num-valor {
+font-family: 'Bebas Neue', sans-serif;
+font-size: 3.5rem;
+color: var(--dourado);
+line-height: 1;
+letter-spacing: 2px;
+}
+
+.num-label {
+font-size: 10px;
+letter-spacing: 2px;
+text-transform: uppercase;
+color: var(--cinza);
+}
+
+.num-divider {
+width: 100%;
+height: 1px;
+background: rgba(201,168,76,0.2);
+margin: 8px 0;
+}
+
+/* SCROLL */
+.hero-scroll {
+position: absolute;
+bottom: 40px;
+left: 80px;
+z-index: 2;
+display: flex;
+align-items: center;
+gap: 12px;
+font-size: 11px;
+letter-spacing: 2px;
+text-transform: uppercase;
+color: var(--cinza);
+}
+
+.scroll-line {
+width: 40px;
+height: 1px;
+background: var(--cinza);
+position: relative;
+overflow: hidden;
+}
+
+.scroll-line::after {
+content: '';
+position: absolute;
+top: 0; left: -100%;
+width: 100%;
+height: 100%;
+background: var(--dourado);
+animation: scrollAnim 2s infinite;
+}
+
+@keyframes scrollAnim {
+to { left: 100%; }
+}
+
+/* SERVIÇOS */
+.servicos {
+padding: 100px 60px;
+background: var(--preto2);
+}
+
+.container { max-width: 1100px; margin: 0 auto; }
+
+.sec-header {
+display: flex;
+align-items: flex-end;
+justify-content: space-between;
+margin-bottom: 60px;
+flex-wrap: wrap;
+gap: 20px;
+}
+
+.sec-label {
+font-size: 11px;
+font-weight: 600;
+letter-spacing: 3px;
+text-transform: uppercase;
+color: var(--dourado);
+margin-bottom: 12px;
+}
+
+.sec-title {
+font-family: 'Bebas Neue', sans-serif;
+font-size: clamp(2.5rem, 5vw, 4rem);
+letter-spacing: 3px;
+color: var(--branco);
+line-height: 1;
+}
+
+.sec-sub {
+font-size: 14px;
+color: var(--cinza);
+max-width: 320px;
+line-height: 1.7;
+font-weight: 300;
+text-align: right;
+}
+
+.servicos-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+gap: 2px;
+}
+
+.serv-card {
+background: rgba(255,255,255,0.02);
+border: 1px solid rgba(255,255,255,0.05);
+padding: 40px 32px;
+cursor: default;
+transition: all 0.3s;
+position: relative;
+overflow: hidden;
+}
+
+.serv-card::before {
+content: '';
+position: absolute;
+bottom: 0; left: 0;
+width: 100%;
+height: 2px;
+background: var(--dourado);
+transform: scaleX(0);
+transition: transform 0.3s;
+}
+
+.serv-card:hover {
+background: rgba(201,168,76,0.04);
+border-color: rgba(201,168,76,0.2);
+}
+
+.serv-card:hover::before { transform: scaleX(1); }
+
+.serv-icon { font-size: 32px; margin-bottom: 20px; }
+
+.serv-card h3 {
+font-family: 'Bebas Neue', sans-serif;
+font-size: 1.5rem;
+letter-spacing: 2px;
+color: var(--branco);
+margin-bottom: 10px;
+}
+
+.serv-card p {
+font-size: 13px;
+color: var(--cinza);
+line-height: 1.7;
+margin-bottom: 24px;
+font-weight: 300;
+}
+
+.serv-preco {
+display: flex;
+align-items: baseline;
+gap: 4px;
+}
+
+.serv-preco .cifrao { font-size: 13px; color: var(--dourado); font-weight: 600; }
+.serv-preco .valor { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--dourado); letter-spacing: 1px; }
+.serv-preco .detalhe { font-size: 12px; color: var(--cinza); }
+
+/* EQUIPE */
+.equipe {
+padding: 100px 60px;
+background: var(--preto);
+}
+
+.equipe-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+gap: 24px;
+margin-top: 60px;
+}
+
+.barb-card {
+position: relative;
+border-radius: 4px;
+overflow: hidden;
+cursor: default;
+}
+
+.barb-img {
+aspect-ratio: 3/4;
+background: var(--preto2);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 60px;
+position: relative;
+overflow: hidden;
+transition: transform 0.4s;
+}
+
+.barb-card:hover .barb-img { transform: scale(1.03); }
+
+.barb-img::after {
+content: '';
+position: absolute;
+inset: 0;
+background: linear-gradient(to top, rgba(13,13,13,0.9) 0%, transparent 50%);
+}
+
+.barb-gradient-1 { background: linear-gradient(160deg, #1a2a1a, #2c3520); }
+.barb-gradient-2 { background: linear-gradient(160deg, #1a1520, #2c1a35); }
+.barb-gradient-3 { background: linear-gradient(160deg, #201510, #352010); }
+
+.barb-info {
+position: absolute;
+bottom: 0; left: 0; right: 0;
+padding: 24px;
+z-index: 2;
+}
+
+.barb-nome {
+font-family: 'Bebas Neue', sans-serif;
+font-size: 1.8rem;
+letter-spacing: 3px;
+color: var(--branco);
+margin-bottom: 4px;
+}
+
+.barb-role {
+font-size: 11px;
+letter-spacing: 2px;
+text-transform: uppercase;
+color: var(--dourado);
+margin-bottom: 12px;
+}
+
+.barb-exp {
+display: inline-flex;
+align-items: center;
+gap: 6px;
+background: rgba(201,168,76,0.15);
+border: 1px solid rgba(201,168,76,0.3);
+color: var(--dourado);
+padding: 5px 12px;
+font-size: 11px;
+font-weight: 600;
+letter-spacing: 1px;
+border-radius: 2px;
+}
+
+/* GALERIA */
+.galeria {
+padding: 80px 60px;
+background: var(--preto2);
+}
+
+.galeria-grid {
+display: grid;
+grid-template-columns: 2fr 1fr 1fr;
+grid-template-rows: 300px 300px;
+gap: 4px;
+margin-top: 50px;
+}
+
+.gal-item {
+background: var(--preto);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 48px;
+overflow: hidden;
+position: relative;
+cursor: default;
+transition: all 0.3s;
+}
+
+.gal-item::before {
+content: attr(data-label);
+position: absolute;
+bottom: 16px;
+left: 16px;
+font-size: 11px;
+letter-spacing: 2px;
+text-transform: uppercase;
+color: rgba(255,255,255,0.5);
+background: rgba(0,0,0,0.5);
+padding: 5px 10px;
+border-radius: 2px;
+}
+
+.gal-item:hover { transform: scale(0.98); }
+
+.gal-item:nth-child(1) { grid-row: 1 / 3; background: linear-gradient(160deg, #1a1200 0%, #2c2010 100%); }
+.gal-item:nth-child(2) { background: linear-gradient(160deg, #0d1a0d 0%, #152010 100%); }
+.gal-item:nth-child(3) { background: linear-gradient(160deg, #1a0d0d 0%, #2c1515 100%); }
+.gal-item:nth-child(4) { background: linear-gradient(160deg, #0d0d1a 0%, #15152c 100%); }
+.gal-item:nth-child(5) { background: linear-gradient(160deg, #1a1a0d 0%, #2c2c15 100%); }
+
+/* DEPOIMENTOS */
+.depoimentos {
+padding: 100px 60px;
+background: var(--preto);
+}
+
+.depo-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+gap: 20px;
+margin-top: 60px;
+}
+
+.depo-card {
+border: 1px solid rgba(255,255,255,0.06);
+border-radius: 4px;
+padding: 36px;
+transition: border-color 0.3s;
+}
+
+.depo-card:hover { border-color: rgba(201,168,76,0.3); }
+
+.depo-aspas {
+font-family: 'Bebas Neue', sans-serif;
+font-size: 5rem;
+color: var(--dourado);
+opacity: 0.3;
+line-height: 0.8;
+margin-bottom: 20px;
+letter-spacing: 2px;
+}
+
+.depo-text {
+font-size: 15px;
+color: rgba(255,255,255,0.7);
+line-height: 1.8;
+margin-bottom: 28px;
+font-weight: 300;
+font-style: italic;
+}
+
+.depo-autor {
+display: flex;
+align-items: center;
+gap: 14px;
+padding-top: 20px;
+border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.depo-ava {
+width: 44px;
+height: 44px;
+border-radius: 2px;
+background: rgba(201,168,76,0.15);
+border: 1px solid rgba(201,168,76,0.3);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 13px;
+font-weight: 700;
+color: var(--dourado);
+flex-shrink: 0;
+font-family: 'Bebas Neue', sans-serif;
+letter-spacing: 1px;
+}
+
+.depo-nome { font-size: 14px; font-weight: 600; color: var(--branco); margin-bottom: 3px; }
+.depo-info2 { font-size: 12px; color: var(--cinza); letter-spacing: 0.5px; }
+.depo-stars { color: var(--dourado); font-size: 12px; letter-spacing: 2px; }
+
+/* LOCALIZAÇÃO */
+.localizacao { padding: 100px 60px; background: var(--preto2); }
+
+.local-inner {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 60px;
+align-items: center;
+}
+
+.local-info p {
+font-size: 15px;
+color: var(--cinza);
+line-height: 1.8;
+margin-bottom: 36px;
+font-weight: 300;
+}
+
+.local-grid { display: flex; flex-direction: column; gap: 16px; }
+
+.local-item {
+display: flex;
+gap: 16px;
+align-items: center;
+padding: 18px 20px;
+border: 1px solid rgba(255,255,255,0.06);
+border-radius: 4px;
+transition: border-color 0.2s;
+}
+
+.local-item:hover { border-color: rgba(201,168,76,0.3); }
+
+.local-ic { font-size: 24px; flex-shrink: 0; }
+
+.local-text strong {
+display: block;
+font-size: 14px;
+color: var(--branco);
+font-weight: 600;
+margin-bottom: 3px;
+}
+
+.local-text span { font-size: 13px; color: var(--cinza); }
+
+.mapa-placeholder {
+background: rgba(255,255,255,0.03);
+border: 1px solid rgba(255,255,255,0.06);
+border-radius: 4px;
+aspect-ratio: 4/3;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 16px;
+color: var(--cinza);
+}
+
+.mapa-placeholder span { font-size: 48px; }
+.mapa-placeholder p { font-size: 13px; letter-spacing: 1px; text-transform: uppercase; }
+
+/* CTA FINAL */
+.cta-final {
+padding: 120px 60px;
+background: var(--preto);
+text-align: center;
+position: relative;
+overflow: hidden;
+}
+
+.cta-final::before {
+content: 'NAVALHA';
+position: absolute;
+font-family: 'Bebas Neue', sans-serif;
+font-size: 25vw;
+color: rgba(255,255,255,0.015);
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+white-space: nowrap;
+pointer-events: none;
+letter-spacing: 10px;
+}
+
+.cta-final h2 {
+font-family: 'Bebas Neue', sans-serif;
+font-size: clamp(3rem, 7vw, 6rem);
+letter-spacing: 5px;
+color: var(--branco);
+line-height: 1;
+margin-bottom: 16px;
+position: relative;
+}
+
+.cta-final h2 span { color: var(--dourado); }
+
+.cta-final p {
+font-size: 16px;
+color: var(--cinza);
+margin-bottom: 48px;
+font-weight: 300;
+position: relative;
+}
+
+.cta-final .hero-tag { justify-content: center; margin-bottom: 28px; }
+
+/* FOOTER */
+footer {
+background: #050505;
+padding: 40px 60px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+border-top: 1px solid rgba(201,168,76,0.1);
+flex-wrap: wrap;
+gap: 16px;
+}
+
+.footer-logo {
+font-family: 'Bebas Neue', sans-serif;
+font-size: 1.4rem;
+color: var(--branco);
+letter-spacing: 3px;
+}
+
+.footer-logo span { color: var(--dourado); }
+
+footer p { font-size: 12px; color: rgba(255,255,255,0.2); }
+
+/* MOBILE */
+@media (max-width: 768px) {
+nav { padding: 0 20px; }
+.nav-links { display: none; }
+.hero-content { padding: 0 24px; }
+.numeros { display: none; }
+.hero-scroll { left: 24px; }
+.servicos, .equipe, .galeria, .depoimentos, .localizacao, .cta-final { padding: 70px 24px; }
+.galeria-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+.gal-item:nth-child(1) { grid-row: auto; grid-column: 1 / 3; }
+.local-inner { grid-template-columns: 1fr; }
+footer { padding: 28px 24px; flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+<a href="#" class="nav-logo">NAVALHA <span>&</span> CO.</a>
+<ul class="nav-links">
+<li><a href="#servicos">Serviços</a></li>
+<li><a href="#equipe">Equipe</a></li>
+<li><a href="#galeria">Galeria</a></li>
+<li><a href="#depoimentos">Avaliações</a></li>
+<li><a href="#localizacao" class="nav-cta">Agendar</a></li>
+</ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-bg"></div>
+
+<div class="hero-content">
+<div class="hero-tag">Est. 2015 · São Paulo</div>
+<h1>
+<span class="outline">A ARTE</span>
+<span class="fill">DO CORTE</span>
+</h1>
+<p class="hero-desc">Barbearia premium no coração de São Paulo. Cortes precisos, barba trabalhada e ambiente que respeita seu tempo.</p>
+<div class="hero-btns">
+<a href="#localizacao" class="btn-gold">Agendar Horário</a>
+<a href="#servicos" class="btn-ghost">Ver Serviços</a>
+</div>
+</div>
+
+<div class="numeros">
+<div class="num-item">
+<div class="num-valor">10+</div>
+<div class="num-label">Anos de mercado</div>
+</div>
+<div class="num-divider"></div>
+<div class="num-item">
+<div class="num-valor">3.8K</div>
+<div class="num-label">Clientes ativos</div>
+</div>
+<div class="num-divider"></div>
+<div class="num-item">
+<div class="num-valor">4.9★</div>
+<div class="num-label">Google Reviews</div>
+</div>
+</div>
+
+<div class="hero-scroll">
+<div class="scroll-line"></div>
+Scroll
+</div>
+</section>
+
+<!-- SERVIÇOS -->
+<section class="servicos" id="servicos">
+<div class="container">
+<div class="sec-header">
+<div>
+<p class="sec-label">O que fazemos</p>
+<h2 class="sec-title">Nossos Serviços</h2>
+</div>
+<p class="sec-sub">Todos os serviços incluem toalha quente e finalização profissional.</p>
+</div>
+<div class="servicos-grid">
+<div class="serv-card">
+<div class="serv-icon">✂️</div>
+<h3>Corte Clássico</h3>
+<p>Corte social, degradê, undercut e pompadour com acabamento impecável e navalha.</p>
+<div class="serv-preco">
+<span class="cifrao">R$</span>
+<span class="valor">65</span>
+<span class="detalhe">/ sessão</span>
+</div>
+</div>
+<div class="serv-card">
+<div class="serv-icon">🪒</div>
+<h3>Barba Completa</h3>
+<p>Modelagem, alinhamento e acabamento com navalha quente. Toalha, bálsamo e óleo inclusos.</p>
+<div class="serv-preco">
+<span class="cifrao">R$</span>
+<span class="valor">55</span>
+<span class="detalhe">/ sessão</span>
+</div>
+</div>
+<div class="serv-card">
+<div class="serv-icon">👑</div>
+<h3>Combo Premium</h3>
+<p>Corte + barba completa + sobrancelha + tratamento capilar. O combo completo.</p>
+<div class="serv-preco">
+<span class="cifrao">R$</span>
+<span class="valor">110</span>
+<span class="detalhe">/ sessão</span>
+</div>
+</div>
+<div class="serv-card">
+<div class="serv-icon">💆</div>
+<h3>Relaxamento</h3>
+<p>Massagem capilar relaxante de 20 minutos com óleos essenciais. Alívio total do estresse.</p>
+<div class="serv-preco">
+<span class="cifrao">R$</span>
+<span class="valor">45</span>
+<span class="detalhe">/ sessão</span>
+</div>
+</div>
+<div class="serv-card">
+<div class="serv-icon">🎨</div>
+<h3>Coloração</h3>
+<p>Tintura, reflexo, descoloração e pigmentação. Consultoria de cor inclusa.</p>
+<div class="serv-preco">
+<span class="cifrao">R$</span>
+<span class="valor">120</span>
+<span class="detalhe">/ sessão</span>
+</div>
+</div>
+<div class="serv-card">
+<div class="serv-icon">🧴</div>
+<h3>Hidratação</h3>
+<p>Tratamento intensivo para cabelos danificados, secos ou com frizz. Resultado imediato.</p>
+<div class="serv-preco">
+<span class="cifrao">R$</span>
+<span class="valor">80</span>
+<span class="detalhe">/ sessão</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- EQUIPE -->
+<section class="equipe" id="equipe">
+<div class="container">
+<div class="sec-header">
+<div>
+<p class="sec-label">Quem faz acontecer</p>
+<h2 class="sec-title">Nossa Equipe</h2>
+</div>
+<p class="sec-sub">Profissionais formados e com anos de experiência no mercado premium.</p>
+</div>
+<div class="equipe-grid">
+<div class="barb-card">
+<div class="barb-img barb-gradient-1">👨‍🦱</div>
+<div class="barb-info">
+<div class="barb-nome">Diego Mendes</div>
+<div class="barb-role">Master Barber · Fundador</div>
+<div class="barb-exp">12 anos de experiência</div>
+</div>
+</div>
+<div class="barb-card">
+<div class="barb-img barb-gradient-2">👨‍🦲</div>
+<div class="barb-info">
+<div class="barb-nome">Lucas Rocha</div>
+<div class="barb-role">Senior Barber</div>
+<div class="barb-exp">7 anos de experiência</div>
+</div>
+</div>
+<div class="barb-card">
+<div class="barb-img barb-gradient-3">🧑‍🦯</div>
+<div class="barb-info">
+<div class="barb-nome">Mateus Lira</div>
+<div class="barb-role">Barber Especialista</div>
+<div class="barb-exp">5 anos de experiência</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- GALERIA -->
+<section class="galeria" id="galeria">
+<div class="container">
+<div class="sec-header">
+<div>
+<p class="sec-label">Nosso trabalho</p>
+<h2 class="sec-title">Galeria</h2>
+</div>
+</div>
+<div class="galeria-grid">
+<div class="gal-item" data-label="Corte + Barba">✂️</div>
+<div class="gal-item" data-label="Degradê">🪒</div>
+<div class="gal-item" data-label="Barba">👑</div>
+<div class="gal-item" data-label="Undercut">💈</div>
+<div class="gal-item" data-label="Clássico">🎯</div>
+</div>
+</div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="depoimentos" id="depoimentos">
+<div class="container">
+<div class="sec-header">
+<div>
+<p class="sec-label">4.9 no Google · 380+ avaliações</p>
+<h2 class="sec-title">O Que Dizem</h2>
+</div>
+</div>
+<div class="depo-grid">
+<div class="depo-card">
+<div class="depo-aspas">"</div>
+<p class="depo-text">Melhor barbearia que já fui em SP sem dúvida. Diego tem um cuidado absurdo com os detalhes. Já tentei outros lugares mas sempre volto. O ambiente é excelente, a música é boa e o café é grátis.</p>
+<div class="depo-autor">
+<div class="depo-ava">RM</div>
+<div>
+<div class="depo-nome">Rodrigo Melo</div>
+<div class="depo-stars">★★★★★</div>
+<div class="depo-info2">Cliente há 3 anos</div>
+</div>
+</div>
+</div>
+<div class="depo-card">
+<div class="depo-aspas">"</div>
+<p class="depo-text">Fui pela primeira vez sem agendamento, me atenderam em 10 minutos. Lucas fez um degradê que ficou perfeito — melhor que os salões que eu frequentava. Voltei semana passada e já vou de novo essa semana.</p>
+<div class="depo-autor">
+<div class="depo-ava">GS</div>
+<div>
+<div class="depo-nome">Gabriel Santos</div>
+<div class="depo-stars">★★★★★</div>
+<div class="depo-info2">Cliente há 6 meses</div>
+</div>
+</div>
+</div>
+<div class="depo-card">
+<div class="depo-aspas">"</div>
+<p class="depo-text">Levei meu filho de 7 anos e ficou encantado. Mateus foi super paciente e entregou exatamente o que pedimos. O ambiente é sofisticado mas sem aquela frieza. Virou nosso ritual mensal pai e filho.</p>
+<div class="depo-autor">
+<div class="depo-ava">FC</div>
+<div>
+<div class="depo-nome">Felipe Costa</div>
+<div class="depo-stars">★★★★★</div>
+<div class="depo-info2">Cliente há 1 ano</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- LOCALIZAÇÃO -->
+<section class="localizacao" id="localizacao">
+<div class="container">
+<div class="local-inner">
+<div class="local-info">
+<p class="sec-label">Onde estamos</p>
+<h2 class="sec-title">Visite A<br>Navalha & Co.</h2>
+<p style="margin-top: 20px;">Estamos no coração da Vila Madalena, em um espaço que combina o clima de barbearia tradicional com o conforto de um ambiente premium.</p>
+<div class="local-grid">
+<div class="local-item">
+<span class="local-ic">📍</span>
+<div class="local-text">
+<strong>Rua Mourato Coelho, 444 — Vila Madalena</strong>
+<span>São Paulo, SP · Próximo ao metrô Fradique Coutinho</span>
+</div>
+</div>
+<div class="local-item">
+<span class="local-ic">🕐</span>
+<div class="local-text">
+<strong>Segunda a Sábado · 9h às 21h</strong>
+<span>Domingo · 10h às 16h · Feriados a consultar</span>
+</div>
+</div>
+<div class="local-item">
+<span class="local-ic">📱</span>
+<div class="local-text">
+<strong>(11) 99999-9999</strong>
+<span>WhatsApp disponível · Resposta em até 1 hora</span>
+</div>
+</div>
+<div class="local-item">
+<span class="local-ic">💳</span>
+<div class="local-text">
+<strong>Todas as formas de pagamento</strong>
+<span>PIX · Crédito · Débito · Dinheiro</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mapa-placeholder">
+<span>🗺️</span>
+<p>Integrar Google Maps aqui</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+<div class="hero-tag" style="position:relative;">Agende Agora</div>
+<h2>RESERVE SEU <span>HORÁRIO</span></h2>
+<p>Vagas limitadas. Agende pelo WhatsApp e garanta seu horário com seu barbeiro favorito.</p>
+<a href="https://wa.me/5511999999999" class="btn-gold" style="font-size: 13px; padding: 17px 44px;">📱 Agendar pelo WhatsApp</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div class="footer-logo">NAVALHA <span>&</span> CO.</div>
+<p>© 2025 Navalha & Co. Barbearia Premium · São Paulo, SP · Projeto fictício para portfólio</p>
+</footer>
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(e => {
+if (e.isIntersecting) {
+e.target.style.opacity = '1';
+e.target.style.transform = 'translateY(0)';
+}
+});
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.serv-card, .barb-card, .depo-card, .local-item').forEach((el, i) => {
+el.style.opacity = '0';
+el.style.transform = 'translateY(24px)';
+el.style.transition = `opacity 0.5s ease ${i * 0.07}s, transform 0.5s ease ${i * 0.07}s`;
+observer.observe(el);
+});
+</script>
+
+</body>
+</html>
