@@ -12,7 +12,19 @@
 </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfólio de Lincoln Oliveira — Desenvolvedor Front-end especializado em HTML, CSS, JavaScript, WordPress e Landing Pages de alta conversão.">
+  <meta name="author" content="Lincoln Oliveira">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Lincoln Oliveira — Desenvolvedor Front-end">
+  <meta property="og:description" content="Portfólio de Lincoln Oliveira — Desenvolvedor Front-end especializado em HTML, CSS, JavaScript, WordPress e Landing Pages de alta conversão.">
+  <meta property="og:url" content="https://lincoln-dev.com.br">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Lincoln Oliveira — Desenvolvedor Front-end">
+  <meta name="twitter:description" content="Portfólio de Lincoln Oliveira — Desenvolvedor Front-end especializado em HTML, CSS, JavaScript, WordPress e Landing Pages de alta conversão.">
   <title>Lincoln Oliveira — Desenvolvedor Web Freelancer</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23070b10'/><text x='16' y='23' font-family='Arial,sans-serif' font-weight='bold' font-size='20' fill='%230bc49a' text-anchor='middle'>L</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
@@ -480,8 +492,16 @@
     }
 
     .skill-icon {
-      font-size: 32px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      height: 40px;
       margin-bottom: 10px;
+      justify-content: center;
+    }
+    .skill-icon img {
+      width: 36px;
+      height: 36px;
     }
 
     .skill-card h3 {
@@ -556,6 +576,22 @@
 
     .proj-thumb-4 {
       background: linear-gradient(135deg, #1f0e05, #3d1f08);
+    }
+
+    .proj-conceitual-tag {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(168,85,247,0.15);
+      border: 1px solid rgba(168,85,247,0.4);
+      color: #c084fc;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+      z-index: 2;
     }
 
     .proj-thumb-label {
@@ -1057,6 +1093,67 @@
       background: linear-gradient(90deg, var(--verde2), var(--roxo2));
       border-radius: 2px;
     }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 1001;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #e2e8f0;
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      position: fixed;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background: rgba(7,11,16,0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 1.5rem 2rem;
+      gap: 0;
+      z-index: 999;
+      transform: translateY(-10px);
+      opacity: 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      border-bottom: 1px solid rgba(11,196,154,0.15);
+    }
+    .mobile-menu.open {
+      display: flex;
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .mobile-menu-link {
+      color: #e2e8f0;
+      text-decoration: none;
+      font-size: 1.1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(226,232,240,0.08);
+      transition: color 0.2s;
+    }
+    .mobile-menu-link:last-child { border-bottom: none; }
+    .mobile-menu-link:hover { color: #0bc49a; }
+    @media (max-width: 900px) {
+      .hamburger { display: flex; }
+      .nav-links { display: none; }
+      .nav-status { display: none; }
+    }
     /* HOVERS TURBINADOS */
 
     /* Skill cards - hover mais forte */
@@ -1276,10 +1373,20 @@
       <li><a href="#contato">Contato</a></li>
     </ul>
     <div class="nav-status">Disponível para projetos</div>
+    <button class="hamburger" aria-label="Abrir menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </nav>
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="#skills" class="mobile-menu-link">Skills</a>
+    <a href="#projetos" class="mobile-menu-link">Projetos</a>
+    <a href="#contato" class="mobile-menu-link">Contato</a>
+  </div>
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero" role="main">
     <div class="hero-left">
       <div class="hero-tag">Olá, eu sou</div>
       <h1>Lincoln Oliveira</h1>
@@ -1297,11 +1404,11 @@
       </div>
       <div class="hero-socials">
 
-        <a href="https://wa.me/559295376923" class="social-btn" title="WhatsApp">📱</a>
+        <a href="https://wa.me/559295376923" class="social-btn" title="WhatsApp" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
 
         <a href="https://www.linkedin.com/in/lincoln-cauã-41418a34b" target="_blank" class="social-btn"
-          title="LinkedIn">💼</a>
-        <a href="https://github.com/oliveiralincoln-dev" target="_blank" class="social-btn" title="GitHub">🐙</a>
+          title="LinkedIn" aria-label="LinkedIn" rel="noopener noreferrer">💼</a>
+        <a href="https://github.com/oliveiralincoln-dev" target="_blank" class="social-btn" title="GitHub" aria-label="GitHub" rel="noopener noreferrer"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
       </div>
     </div>
 
@@ -1332,39 +1439,70 @@
   </section>
 
   <!-- SKILLS -->
-  <section class="skills-section" id="skills">
+  <section class="skills-section" id="skills" aria-labelledby="skills-title">
     <div class="reveal">
       <div class="sec-label">Habilidades</div>
-      <h2 class="sec-title">O que eu faço</h2>
+      <h2 class="sec-title" id="skills-title">O que eu faço</h2>
     </div>
     <div class="skills-grid">
       <div class="skill-card reveal">
-        <div class="skill-icon">🌐</div>
+        <div class="skill-icon">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="36" height="36" alt="HTML5">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="36" height="36" alt="CSS3">
+        </div>
         <h3>HTML & CSS</h3>
         <p>Layouts responsivos do zero</p>
       </div>
       <div class="skill-card reveal">
-        <div class="skill-icon">⚡</div>
+        <div class="skill-icon">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="36" height="36" alt="JavaScript">
+        </div>
         <h3>JavaScript</h3>
         <p>Interatividade e animações</p>
       </div>
       <div class="skill-card reveal">
-        <div class="skill-icon">🎨</div>
+        <div class="skill-icon">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg" width="36" height="36" alt="WordPress" style="filter:invert(1)">
+        </div>
         <h3>WordPress</h3>
         <p>Sites gerenciáveis</p>
       </div>
       <div class="skill-card reveal">
-        <div class="skill-icon">🔧</div>
+        <div class="skill-icon">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="36" height="36" rx="6" fill="#92003B"/>
+            <rect x="8" y="8" width="6" height="20" rx="2" fill="white"/>
+            <rect x="15" y="8" width="6" height="12" rx="2" fill="white"/>
+            <rect x="22" y="8" width="6" height="16" rx="2" fill="white"/>
+          </svg>
+        </div>
         <h3>Elementor</h3>
         <p>Construtor visual profissional</p>
       </div>
       <div class="skill-card reveal">
-        <div class="skill-icon">🚀</div>
+        <div class="skill-icon">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="5" width="32" height="22" rx="3" stroke="#0bc49a" stroke-width="2" fill="none"/>
+            <rect x="2" y="5" width="32" height="6" rx="3" fill="#0bc49a" opacity="0.3"/>
+            <rect x="7" y="17" width="10" height="2" rx="1" fill="#0bc49a"/>
+            <rect x="7" y="21" width="7" height="2" rx="1" fill="#0bc49a" opacity="0.6"/>
+            <rect x="20" y="15" width="10" height="6" rx="2" fill="#0bc49a" opacity="0.8"/>
+            <text x="25" y="20" font-family="Arial" font-size="5" fill="white" text-anchor="middle">CTA</text>
+          </svg>
+        </div>
         <h3>Landing Pages</h3>
         <p>Foco em conversão</p>
       </div>
       <div class="skill-card reveal">
-        <div class="skill-icon">🤖</div>
+        <div class="skill-icon">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="6" cy="18" r="5" fill="#ea4b71"/>
+            <circle cx="18" cy="8" r="5" fill="#ea4b71"/>
+            <circle cx="30" cy="18" r="5" fill="#ea4b71"/>
+            <line x1="11" y1="18" x2="13" y2="11" stroke="#ea4b71" stroke-width="2"/>
+            <line x1="23" y1="11" x2="25" y2="18" stroke="#ea4b71" stroke-width="2"/>
+          </svg>
+        </div>
         <h3>Automação N8N</h3>
         <p>Fluxos e integrações</p>
       </div>
@@ -1372,18 +1510,19 @@
   </section>
 
   <!-- PROJETOS -->
-  <section class="projetos" id="projetos">
+  <section class="projetos" id="projetos" aria-labelledby="projetos-title">
     <div class="reveal">
       <div class="sec-label">Portfólio</div>
-      <h2 class="sec-title">Projetos Recentes</h2>
+      <h2 class="sec-title" id="projetos-title">Projetos Recentes</h2>
     </div>
 
     <div class="proj-grid">
 
-      <a href="financas-clt.html" class="proj-card reveal" target="_blank">
+      <a href="financas-clt.html" class="proj-card reveal" target="_blank" rel="noopener noreferrer">
         <div class="proj-thumb proj-thumb-1">
         <img src="imagens/financas.png.jpeg" alt="Preview do projeto">
           <span class="proj-thumb-label">Landing Page</span>
+          <div class="proj-conceitual-tag">Conceitual</div>
         </div>
         <div class="proj-body">
           <h3>Finanças CLT — Curso Online</h3>
@@ -1399,10 +1538,11 @@
         </div>
       </a>
 
-      <a href="psicologa-analima.html" class="proj-card reveal" target="_blank">
+      <a href="psicologa-analima.html" class="proj-card reveal" target="_blank" rel="noopener noreferrer">
         <div class="proj-thumb proj-thumb-2">
         <img src="imagens/psicologa.png.jpeg" alt="Preview do projeto">
           <span class="proj-thumb-label">Site Profissional</span>
+          <div class="proj-conceitual-tag">Conceitual</div>
         </div>
         <div class="proj-body">
           <h3>Ana Lima — Psicóloga Clínica</h3>
@@ -1418,10 +1558,11 @@
         </div>
       </a>
 
-      <a href="barbearia-navalha.html" class="proj-card reveal" target="_blank">
+      <a href="barbearia-navalha.html" class="proj-card reveal" target="_blank" rel="noopener noreferrer">
         <div class="proj-thumb proj-thumb-3">
         <img src="imagens/barbearia.png.jpeg" alt="Preview do projeto">
           <span class="proj-thumb-label">Site Institucional</span>
+          <div class="proj-conceitual-tag">Conceitual</div>
         </div>
         <div class="proj-body">
           <h3>Navalha & Co. — Barbearia Premium</h3>
@@ -1437,10 +1578,11 @@
         </div>
       </a>
 
-      <a href="burger-house.html" class="proj-card reveal" target="_blank">
+      <a href="burger-house.html" class="proj-card reveal" target="_blank" rel="noopener noreferrer">
         <div class="proj-thumb proj-thumb-4">
           <img src="imagens/burger-house.png.jpeg.jpeg" alt="Preview do projeto">
           <span class="proj-thumb-label">Site Institucional</span>
+          <div class="proj-conceitual-tag">Conceitual</div>
         </div>
         <div class="proj-body">
           <h3>Burger House — Hamburgueria Artesanal</h3>
@@ -1478,7 +1620,7 @@
 
           <span class="ci-arrow">→</span>
         </a> </a>
-        <a href="https://www.linkedin.com/in/lincoln-cauã-41418a34b" target="_blank" class="contact-item">
+        <a href="https://www.linkedin.com/in/lincoln-cauã-41418a34b" target="_blank" class="contact-item" aria-label="LinkedIn" rel="noopener noreferrer">
           <div class="ci-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
               <path
@@ -1491,7 +1633,7 @@
           </div>
           <span class="ci-arrow">→</span>
         </a>
-        <a href="https://github.com/oliveiralincoln-dev" target="_blank" class="contact-item">
+        <a href="https://github.com/oliveiralincoln-dev" target="_blank" class="contact-item" aria-label="GitHub" rel="noopener noreferrer">
           <div class="ci-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
               <path
@@ -1511,6 +1653,11 @@
         <div class="form-group">
           <label for="nome">Nome</label>
           <input type="text" id="nome" placeholder="Seu nome" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">E-mail (opcional)</label>
+          <input type="email" id="email" placeholder="seu@email.com">
         </div>
 
         <div class="form-group">
@@ -1565,6 +1712,34 @@
   </div>
 
   <script>
+    // Hamburger menu
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (hamburger && mobileMenu) {
+      hamburger.addEventListener('click', () => {
+        const isOpen = hamburger.classList.toggle('open');
+        mobileMenu.classList.toggle('open', isOpen);
+        hamburger.setAttribute('aria-expanded', isOpen);
+        mobileMenu.setAttribute('aria-hidden', !isOpen);
+      });
+      mobileMenu.querySelectorAll('.mobile-menu-link').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('open');
+          mobileMenu.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+          mobileMenu.setAttribute('aria-hidden', 'true');
+        });
+      });
+      document.addEventListener('click', (e) => {
+        if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+          hamburger.classList.remove('open');
+          mobileMenu.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+          mobileMenu.setAttribute('aria-hidden', 'true');
+        }
+      });
+    }
+
    // URL do Apps Script que recebe os dados
     const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbytY2L-_gcP8lQYz6Ui0IWz4kbsWLG0P1ZluTrRCHTFOHvSSnwX4MYsBTa1ENhuSJbF/exec';
 
@@ -1573,6 +1748,7 @@
       event.preventDefault();
 
       const nome = document.getElementById('nome').value.trim();
+      const email = document.getElementById('email')?.value?.trim() || '';
       const servico = document.getElementById('servico').value;
       const orcamento = document.getElementById('orcamento').value;
       const mensagem = document.getElementById('mensagem').value.trim();
@@ -1585,6 +1761,7 @@
         body: JSON.stringify({
           tipo: 'Leads',
           nome: nome,
+          email: email,
           servico: servico,
           orcamento: orcamento,
           mensagem: mensagem,
@@ -1594,7 +1771,7 @@
 
       // 2. monta mensagem do WhatsApp
       const texto =
-        `Olá, Lincoln! Me chamo ${nome}.
+        `Olá, Lincoln! Me chamo ${nome}.${email ? '\nMeu e-mail: ' + email : ''}
 
 Tenho interesse em: ${servico}
 Faixa de orçamento: ${orcamento}
