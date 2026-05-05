@@ -108,15 +108,49 @@
     }
 
     .nav-links a {
+      position: relative;
       font-size: 14px;
       font-weight: 500;
       color: var(--cinza);
       text-decoration: none;
-      transition: color 0.2s;
+      padding: 6px 0;
+      transition: color 0.25s;
     }
 
     .nav-links a:hover {
       color: var(--branco);
+    }
+
+    .nav-links a::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--verde2), var(--roxo2));
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .nav-links a:hover::before {
+      width: 100%;
+      left: 0;
+    }
+
+    .nav-links a.active {
+      color: var(--branco);
+    }
+
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--verde2), var(--roxo2));
+      border-radius: 2px;
     }
 
     .nav-status {
@@ -484,13 +518,6 @@
       cursor: default;
     }
 
-    .skill-card:hover {
-      border-color: var(--verde2);
-      background: rgba(11, 196, 154, 0.06);
-      transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(11, 196, 154, 0.1);
-    }
-
     .skill-icon {
       display: flex;
       align-items: center;
@@ -556,12 +583,12 @@
       position: relative;
       overflow: hidden;
     }
-.proj-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
+    .proj-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
     .proj-thumb-1 {
       background: linear-gradient(135deg, #0a1f14, #0d3d22);
     }
@@ -794,36 +821,39 @@
     }
 
     .form-group input,
-.form-group textarea,
-.form-group select {
-  width: 100%;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--borda);
-  border-radius: 10px;
-  padding: 13px 16px;
-  color: var(--branco);
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 14px;
-  outline: none;
-  transition: border-color 0.2s;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-}
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--borda);
+      border-radius: 10px;
+      padding: 13px 16px;
+      color: var(--branco);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+    }
+
     .form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
-  border-color: var(--verde2);
-}
-.form-group select option {
-  background: #0b1118;
-  color: #f0f4f8;
-}
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--verde2);
+    }
+
+    .form-group select option {
+      background: #0b1118;
+      color: #f0f4f8;
+    }
+
     .form-group textarea {
       min-height: 100px;
       resize: vertical;
     }
-    
+
     .btn-enviar {
       width: 100%;
       background: linear-gradient(135deg, var(--verde), var(--verde2));
@@ -1074,26 +1104,6 @@
       0%, 50% { opacity: 1; }
       51%, 100% { opacity: 0; }
     }
-    /* NAV LINK ATIVO */
-    .nav-links a {
-      position: relative;
-    }
-
-    .nav-links a.active {
-      color: var(--branco);
-    }
-
-    .nav-links a.active::after {
-      content: '';
-      position: absolute;
-      bottom: -6px;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--verde2), var(--roxo2));
-      border-radius: 2px;
-    }
-
     /* Hamburger */
     .hamburger {
       display: none;
@@ -1205,29 +1215,6 @@
 
     .proj-card:hover .proj-thumb img {
       transform: scale(1.08);
-    }
-
-    /* Nav links - hover com destaque */
-    .nav-links a {
-      padding: 6px 0;
-      transition: color 0.25s;
-    }
-
-    .nav-links a::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--verde2), var(--roxo2));
-      transition: all 0.3s ease;
-      border-radius: 2px;
-    }
-
-    .nav-links a:hover::before {
-      width: 100%;
-      left: 0;
     }
 
     /* Botão primário com brilho */
@@ -1501,7 +1488,7 @@
 
       <a href="financas-clt.html" class="proj-card reveal" target="_blank" rel="noopener noreferrer">
         <div class="proj-thumb proj-thumb-1">
-        <img src="imagens/financas.png.jpeg" alt="Preview do projeto">
+          <img src="imagens/financas.png.jpeg" alt="Preview do projeto">
           <span class="proj-thumb-label">Landing Page</span>
           <div class="proj-conceitual-tag">Conceitual</div>
         </div>
@@ -1521,7 +1508,7 @@
 
       <a href="psicologa-analima.html" class="proj-card reveal" target="_blank" rel="noopener noreferrer">
         <div class="proj-thumb proj-thumb-2">
-        <img src="imagens/psicologa.png.jpeg" alt="Preview do projeto">
+          <img src="imagens/psicologa.png.jpeg" alt="Preview do projeto">
           <span class="proj-thumb-label">Site Profissional</span>
           <div class="proj-conceitual-tag">Conceitual</div>
         </div>
@@ -1541,7 +1528,7 @@
 
       <a href="barbearia-navalha.html" class="proj-card reveal" target="_blank" rel="noopener noreferrer">
         <div class="proj-thumb proj-thumb-3">
-        <img src="imagens/barbearia.png.jpeg" alt="Preview do projeto">
+          <img src="imagens/barbearia.png.jpeg" alt="Preview do projeto">
           <span class="proj-thumb-label">Site Institucional</span>
           <div class="proj-conceitual-tag">Conceitual</div>
         </div>
@@ -1600,7 +1587,7 @@
           </div>
 
           <span class="ci-arrow">→</span>
-        </a> </a>
+        </a>
         <a href="https://www.linkedin.com/in/lincoln-cauã-41418a34b" target="_blank" class="contact-item" aria-label="LinkedIn" rel="noopener noreferrer">
           <div class="ci-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -1721,7 +1708,6 @@
       });
     }
 
-   // URL do Apps Script que recebe os dados
     const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbytY2L-_gcP8lQYz6Ui0IWz4kbsWLG0P1ZluTrRCHTFOHvSSnwX4MYsBTa1ENhuSJbF/exec';
 
     // formulário de contato — envia pra planilha E abre WhatsApp
@@ -1767,8 +1753,7 @@ ${mensagem}`;
       setTimeout(() => {
         window.open(url, '_blank');
       }, 300);
-    }); 
-    
+    });
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((e, i) => {
@@ -1778,10 +1763,7 @@ ${mensagem}`;
       });
     }, { threshold: 0.08 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    // quando a página carrega:
-    // 1. esconde o preloader depois de 1.8s
-    // 2. mostra banner de cookies (se ainda não tiver escolhido)
-    // 3. envia dados do visitante SÓ SE o usuário aceitou
+
     window.addEventListener('load', () => {
       // esconde o preloader
       setTimeout(() => {
@@ -1834,7 +1816,7 @@ ${mensagem}`;
       localStorage.setItem('cookiesLincoln', 'rejeitado');
       document.getElementById('cookieBanner').classList.remove('show');
     });
-// efeito de digitação no hero
+
     const typingWords = [
       'Desenvolvedor Web',
       'Criador de Landing Pages',
@@ -1872,7 +1854,7 @@ ${mensagem}`;
     }
 
     type();
-    // nav link ativo conforme o scroll
+
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-links a');
 
